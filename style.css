@@ -10,7 +10,7 @@
     --gray: #64748b; /* Medium Grey-Blue (paragraphs) */
     --light-gray: #e2e8f0; /* Lighter Grey-Blue (footer links, borders) */
 
-    --header-solid-blue: #0057B3; /* Solid blue for header, based on screenshot */
+    --header-solid-blue: #0057B3; /* Solid blue for header */
 
     --transition: all 0.3s ease;
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -195,7 +195,7 @@ header.menu-open {
 
 .nav-links a {
     text-decoration: none;
-    color: white; /* Nav links are white text on solid blue header */
+    color: white; /* Nav links are white on solid blue header */
     font-weight: 600;
     transition: var(--transition);
     position: relative;
@@ -213,7 +213,7 @@ header.menu-open {
     left: 0;
     width: 0;
     height: 3px;
-    background: var(--accent);
+    background: var(--gradient);
     transition: var(--transition);
     border-radius: 2px;
 }
@@ -245,25 +245,23 @@ header.menu-open {
 /* Hero Section Styling (for index.html) */
 .hero-section {
     padding: 180px 0 120px;
-    background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); /* Static light background gradient */
     position: relative;
     overflow: hidden;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
 }
 
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: var(--gradient);
-    opacity: 0.08;
-    z-index: 0;
-}
+/* Video background removed in HTML, so no need for these styles */
+.video-background { display: none; }
+.video-background video { display: none; }
+.hero-section::before { content: none; } /* Removed overlay */
 
+
+/* Original decorative circles - still apply */
 .hero-section::after {
     content: "";
     position: absolute;
@@ -282,15 +280,17 @@ header.menu-open {
     z-index: 1;
     max-width: 900px;
     margin: 0 auto;
+    color: var(--dark); /* Text color for readability on light background */
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin-bottom: 25px;
-    color: var(--darker);
+    color: var(--darker); /* H1 is dark */
     line-height: 1.1;
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;
+    text-shadow: none; /* No text shadow on light background */
 }
 
 .hero-content h1 span {
@@ -301,22 +301,15 @@ header.menu-open {
 }
 
 .hero-content p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 40px;
-    color: var(--gray);
+    color: var(--gray); /* Paragraph is gray */
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     animation: fadeInUp 0.8s ease-out 0.2s forwards;
     opacity: 0;
-}
-
-.hero-btns {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    animation: fadeInUp 0.8s ease-out 0.4s forwards;
-    opacity: 0;
+    text-shadow: none; /* No text shadow on light background */
 }
 
 
